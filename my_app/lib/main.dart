@@ -14,12 +14,12 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],
       ),
       body: Center(
-          // ICON
-          child: Icon(
-        Icons.developer_mode,
-        color: Colors.blue[500],
-        size: 100.0,
-      )),
+        child: IconButton(
+          icon: Icon(Icons.alternate_email),
+          onPressed: () => {print("You clicked me.")},
+          color: Colors.amber,
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {},
         child: Text("Click"),
