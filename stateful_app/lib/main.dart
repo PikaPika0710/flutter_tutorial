@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
+import 'quote_card.dart';
 
 void main() => runApp(MaterialApp(
       home: QuoteList(),
@@ -35,31 +36,6 @@ class _QuoteListState extends State<QuoteList> {
             'The future belongs to those who believe in the beauty of their dreams.',
         author: 'Eleanor Roosevelt'),
   ];
-  Widget cardTemplate(quote) {
-    return Card(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        Text(
-          quote.text,
-          style: TextStyle(
-            color: Colors.grey[600],
-            fontSize: 18.0,
-          ),
-        ),
-        SizedBox(
-          height: 6.0,
-        ),
-        Text(
-          quote.author,
-          style: TextStyle(
-            color: Colors.grey[900],
-            fontSize: 14.0,
-          ),
-        ),
-      ],
-    ));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +50,7 @@ class _QuoteListState extends State<QuoteList> {
             child: Container(
                 child: Column(
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: quotes.map((quote) => cardTemplate(quote)).toList(),
+              children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
             ))));
   }
 }
