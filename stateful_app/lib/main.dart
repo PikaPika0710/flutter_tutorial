@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
 
 void main() => runApp(MaterialApp(
       home: QuoteList(),
@@ -12,17 +13,27 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
-  List<String> quotes = [
-    'Spread love everywhere you go. Let no one ever come to you without leaving happier. -Mother Teresa',
-    'When you reach the end of your rope, tie a knot in it and hang on. -Franklin D. Roosevelt',
-    'Always remember that you are absolutely unique. Just like everyone else. -Margaret Mead',
-    'Dont judge each day by the harvest you reap but by the seeds that you plant. -Robert Louis Stevenson',
-    'The future belongs to those who believe in the beauty of their dreams. -Eleanor Roosevelt',
-    'Tell me and I forget. Teach me and I remember. Involve me and I learn. -Benjamin Franklin',
-    'The best and most beautiful things in the world cannot be seen or even touched — they must be felt with the heart. -Helen Keller',
-    'It is during our darkest moments that we must focus to see the light. -Aristotle',
-    'Whoever is happy will make others happy too. -Anne Frank',
-    'Do not go where the path may lead, go instead where there is no path and leave a trail. -Ralph Waldo Emerson'
+  List<Quote> quotes = [
+    Quote(
+        text:
+            'Spread love everywhere you go. Let no one ever come to you without leaving happier.',
+        author: 'Mother Teresa'),
+    Quote(
+        text:
+            'When you reach the end of your rope, tie a knot in it and hang on.',
+        author: 'Franklin D. Roosevelt'),
+    Quote(
+        text:
+            'Always remember that you are absolutely unique. Just like everyone else.',
+        author: 'Margaret Mead'),
+    Quote(
+        text:
+            'Dont judge each day by the harvest you reap but by the seeds that you plant.',
+        author: 'Robert Louis Stevenson'),
+    Quote(
+        text:
+            'The future belongs to those who believe in the beauty of their dreams.',
+        author: 'Eleanor Roosevelt'),
   ];
   @override
   Widget build(BuildContext context) {
@@ -35,16 +46,15 @@ class _QuoteListState extends State<QuoteList> {
         body: Padding(
           padding: EdgeInsets.all(20.0),
           child: Container(
-              color: Colors.blue,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: quotes
-                    .map((quote) => Text(
-                          quote,
-                          style: TextStyle(fontSize: 15.0, color: Colors.white),
-                        ))
-                    .toList(),
-              )),
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: quotes
+                .map((quote) => Text(
+                      '${quote.text} - ${quote.author}',
+                      style: TextStyle(fontSize: 15.0, color: Colors.white),
+                    ))
+                .toList(),
+          )),
         ));
   }
 }
