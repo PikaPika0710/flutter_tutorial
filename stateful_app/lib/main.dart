@@ -35,26 +35,46 @@ class _QuoteListState extends State<QuoteList> {
             'The future belongs to those who believe in the beauty of their dreams.',
         author: 'Eleanor Roosevelt'),
   ];
+  Widget cardTemplate(quote) {
+    return Card(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Text(
+          quote.text,
+          style: TextStyle(
+            color: Colors.grey[600],
+            fontSize: 18.0,
+          ),
+        ),
+        SizedBox(
+          height: 6.0,
+        ),
+        Text(
+          quote.author,
+          style: TextStyle(
+            color: Colors.grey[900],
+            fontSize: 14.0,
+          ),
+        ),
+      ],
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.amber[600],
         appBar: AppBar(
           title: Center(child: Text('Awesome Quotes')),
-          backgroundColor: Colors.amber,
+          backgroundColor: Colors.red[400],
         ),
         body: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Container(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: quotes
-                .map((quote) => Text(
-                      '${quote.text} - ${quote.author}',
-                      style: TextStyle(fontSize: 15.0, color: Colors.white),
-                    ))
-                .toList(),
-          )),
-        ));
+            padding: EdgeInsets.all(20.0),
+            child: Container(
+                child: Column(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: quotes.map((quote) => cardTemplate(quote)).toList(),
+            ))));
   }
 }
