@@ -46,11 +46,19 @@ class _QuoteListState extends State<QuoteList> {
           backgroundColor: Colors.red[400],
         ),
         body: Padding(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(10.0),
             child: Container(
                 child: Column(
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+              children: quotes
+                  .map((quote) => QuoteCard(
+                      quote: quote,
+                      delete: () {
+                        setState(() {
+                          quotes.remove(quote);
+                        });
+                      }))
+                  .toList(),
             ))));
   }
 }
