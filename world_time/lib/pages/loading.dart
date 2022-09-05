@@ -12,9 +12,14 @@ class _LoadingState extends State<Loading> {
     WorldTime vietnam = new WorldTime(
         location: 'vietnam', flag: 'vietnam.png', url: 'Asia/Ho_Chi_Minh');
     await vietnam.getTime();
-    print(vietnam.time);
     setState(() {
       vietnamNow = vietnam.time;
+    });
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      // 'location': vietnam.location,
+      // 'flag': vietnam.flag,
+      // 'time': vietnam.time
+      'country': vietnam,
     });
   }
 
