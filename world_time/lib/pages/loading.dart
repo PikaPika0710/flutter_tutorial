@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
+import 'package:world_time/services/world_time.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -8,26 +7,37 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  void getTime() async {
-    Response response = await get(
-        Uri.parse('https://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh'));
-    Map data = jsonDecode(response.body);
-    DateTime now = DateTime.parse(data['datetime']);
-    now =
-        now.add(Duration(hours: int.parse(data['utc_offset'].substring(1, 3))));
-    print(now);
+  String vietnamNow = 'loading...';
+  void setUpWorldTime() async {
+    WorldTime vietnam = new WorldTime(
+        location: 'vietnam', flag: 'vietnam.png', url: 'Asia/Ho_Chi_Minh');
+    await vietnam.getTime();
+    print(vietnam.time);
+    setState(() {
+      vietnamNow = vietnam.time;
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    getTime();
+    setUpWorldTime();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Loading Page'),
+      body: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Center(
+              child: Text(
+            'VietNam: ${vietnamNow}',
+            style: TextStyle(
+              fontSize: 20.0,
+              color: Colors.amber,
+              fontWeight: FontWeight.bold,
+            ),
+          ))),
     );
   }
 }
