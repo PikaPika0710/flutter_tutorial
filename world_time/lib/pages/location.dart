@@ -7,7 +7,15 @@ class Location extends StatefulWidget {
 
 class _LocationState extends State<Location> {
   @override
+  void initState() {
+    super.initState();
+    print('Init Function called.');
+  }
+
+  int count = 0;
+  @override
   Widget build(BuildContext context) {
+    print('Build Function called.');
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
@@ -15,7 +23,18 @@ class _LocationState extends State<Location> {
         backgroundColor: Colors.orange,
         elevation: 0,
       ),
-      body: Center(child: Text('Location Page.')),
+      body: Column(
+        children: [
+          Center(child: Text('$count')),
+          ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  count++;
+                });
+              },
+              child: Text('add'))
+        ],
+      ),
     );
   }
 }
