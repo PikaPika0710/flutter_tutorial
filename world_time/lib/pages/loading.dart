@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:world_time/services/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -16,9 +17,6 @@ class _LoadingState extends State<Loading> {
       vietnamNow = vietnam.time;
     });
     Navigator.pushReplacementNamed(context, '/home', arguments: {
-      // 'location': vietnam.location,
-      // 'flag': vietnam.flag,
-      // 'time': vietnam.time
       'country': vietnam,
     });
   }
@@ -32,17 +30,11 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Center(
-              child: Text(
-            'VietNam: ${vietnamNow}',
-            style: TextStyle(
-              fontSize: 20.0,
-              color: Colors.amber,
-              fontWeight: FontWeight.bold,
-            ),
-          ))),
-    );
+        backgroundColor: Colors.blue,
+        body: Center(
+            child: SpinKitRotatingCircle(
+          color: Colors.white,
+          size: 50.0,
+        )));
   }
 }
