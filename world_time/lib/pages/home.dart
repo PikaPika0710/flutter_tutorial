@@ -10,7 +10,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     data = ModalRoute.of(context)!.settings.arguments as Map;
+
     return Scaffold(
+      backgroundColor:
+          data['country'].isDayTime ? Colors.white : Colors.grey[500],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 180.0, 0, 0),
