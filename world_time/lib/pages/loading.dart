@@ -11,7 +11,7 @@ class _LoadingState extends State<Loading> {
   String vietnamNow = 'loading...';
   void setUpWorldTime() async {
     WorldTime vietnam = new WorldTime(
-        location: 'vietnam', flag: 'vietnam.png', url: 'Asia/Ho_Chi_Minh');
+        location: 'VietNam', flag: 'vietnam.png', url: 'Asia/Ho_Chi_Minh');
     await vietnam.getTime();
     setState(() {
       vietnamNow = vietnam.time;
