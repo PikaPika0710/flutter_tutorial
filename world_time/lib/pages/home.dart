@@ -9,9 +9,13 @@ class _HomeState extends State<Home> {
   Map data = {};
   String bgImage = '';
   late Color bgColor;
+
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context)!.settings.arguments as Map;
+    data = data.isNotEmpty
+        ? data
+        : ModalRoute.of(context)!.settings.arguments as Map;
+
     bgImage = data['country'].isDayTime ? "day.jpg" : "night.jpg";
     bgColor = data['country'].isDayTime ? Colors.blue : Colors.black;
     return Scaffold(
@@ -36,8 +40,12 @@ class _HomeState extends State<Home> {
                       Icons.edit_location,
                       color: Colors.grey[600],
                     ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/location');
+                    onPressed: () async {
+                      dynamic result =
+                          await Navigator.pushNamed(context, '/location');
+                      setState(() {
+                        data = result;
+                      });
                     },
                   ),
                   SizedBox(
