@@ -10,21 +10,44 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     data = ModalRoute.of(context)!.settings.arguments as Map;
-    print(data['country'].location);
-    print(data['country'].flag);
-    print(data['country'].time);
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            ElevatedButton.icon(
-              label: Text('Edit Location'),
-              icon: Icon(Icons.edit_location),
-              onPressed: () {
-                Navigator.pushNamed(context, '/location');
-              },
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 180.0, 0, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton.icon(
+                label: Text('Edit Location'),
+                icon: Icon(Icons.edit_location),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/location');
+                },
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '${data['country'].location}',
+                    style: TextStyle(
+                      fontSize: 25.0,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Text('${data['country'].time}',
+                  style: TextStyle(
+                    fontSize: 66.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ],
+          ),
         ),
       ),
     );
