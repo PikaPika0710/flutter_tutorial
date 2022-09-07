@@ -12,12 +12,23 @@ class _LocationState extends State<Location> {
         url: 'Asia/Ho_Chi_Minh', location: 'VietNam', flag: 'vietnam.png'),
     WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
     WorldTime(url: 'Europe/Athens', location: 'Athens', flag: 'greece.png'),
+    WorldTime(url: 'Europe/Berlin', location: 'Berlin', flag: 'berlin.png'),
+    WorldTime(url: 'Europe/Brussels', location: 'Brussels', flag: 'brussels.png'),
+    WorldTime(url: 'Europe/Moscow', location: 'Moscow', flag: 'moscow.png'),
     WorldTime(url: 'Africa/Cairo', location: 'Cairo', flag: 'egypt.png'),
     WorldTime(url: 'Africa/Nairobi', location: 'Nairobi', flag: 'kenya.png'),
     WorldTime(url: 'America/Chicago', location: 'Chicago', flag: 'usa.png'),
     WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
     WorldTime(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
     WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
+    WorldTime(url: 'Asia/Hong_Kong', location: 'Hong Kong', flag: 'hongkong.png'),
+    WorldTime(url: 'Asia/Dubai', location: 'Dubai', flag: 'dubai.png'),
+    WorldTime(url: 'Asia/Macau', location: 'Macau', flag: 'macau.png'),
+    WorldTime(url: 'Australia/Sydney', location: 'Sydney', flag: 'sydney.png'),
+    WorldTime(url: 'Indian/Christmas', location: 'Christmas', flag: 'christmas.png'),
+    WorldTime(url: 'Indian/Chagos', location: 'Chagos', flag: 'chagos.png'),
+    WorldTime(url: 'Pacific/Palau', location: 'Palau', flag: 'palau.png'),
+    WorldTime(url: 'Pacific/Tahiti', location: 'Tahiti', flag: 'tahiti.png'),
   ];
   @override
   Widget build(BuildContext context) {

@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
                       dynamic result =
                           await Navigator.pushNamed(context, '/location');
                       setState(() {
-                        data = result;
+                        data = result != null? result: data;
                       });
                     },
                   ),

@@ -16,7 +16,7 @@ class _LoadingState extends State<Loading> {
     setState(() {
       vietnamNow = vietnam.time;
     });
-    Navigator.pushReplacementNamed(context, '/home', arguments: {
+    Navigator.pushNamed(context, '/home', arguments: {
       'country': vietnam,
     });
   }
