@@ -1,6 +1,6 @@
 # world_time
 
-A new Flutter project.
+Flutter project.
 
 ## Getting Started
 
@@ -14,3 +14,16 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+## Demo app
+* Loading page
+![alt text](loading.jpg)
+* Home page
+![alt text](home.jpg)
+* Location page
+![alt text](location.jpg)
+* Change location
+![alt text](location_changed.jpg)
+* No network
+![alt text](nodata.jpg)
